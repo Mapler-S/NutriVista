@@ -1,0 +1,92 @@
+# ===== 敏感配置（含密钥/密码，切勿提交）=====
+**/application.yml
+**/application-*.yml
+**/application.properties
+**/application-*.properties
+
+!.env.example
+!.env.template
+
+# ===== Java / Maven 构建产物 =====
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# ===== 日志 =====
+logs/
+*.log
+*.log.*
+*.log.gz
+
+# ===== IDE — IntelliJ IDEA =====
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ===== IDE — Eclipse =====
+.project
+.classpath
+.settings/
+.factorypath
+.apt_generated/
+
+# ===== IDE — VS Code =====
+.vscode/
+*.code-workspace
+
+# ===== IDE — 其他 =====
+.claude/
+nbproject/private/
+.metadata/
+
+# ===== 前端 — Node / Vite =====
+node_modules/
+dist/
+dist-ssr/
+.vite/
+.cache/
+.parcel-cache/
+.turbo/
+.next/
+.nuxt/
+.output/
+coverage/
+*.local
+
+# ===== 前端 — 包管理器锁/日志 =====
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+ehthumbs.db
+
+# ===== 临时 / 备份 =====
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+*~
+
+# ===== 数据库本地文件 =====
+*.sqlite
+*.sqlite3
+*.db
+
+DESIGN.md

@@ -1,0 +1,278 @@
+// =============================================================
+// NutriVista Global Styles
+// =============================================================
+
+@use './variables.scss' as *;
+
+// ===== Reset & Base =====
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: $color-text-primary;
+  background-color: $color-bg-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ===== Typography =====
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-sans;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+}
+
+h1 { font-size: $font-size-3xl; }
+h2 { font-size: $font-size-2xl; }
+h3 { font-size: $font-size-xl; }
+h4 { font-size: $font-size-lg; }
+
+p {
+  color: $color-text-secondary;
+  line-height: $line-height-base;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}
+
+// ===== Scrollbar =====
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-border;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $color-text-disabled;
+  }
+}
+
+// ===== Selection =====
+::selection {
+  background: $color-accent-light;
+  color: $color-accent;
+}
+
+// ===== Number / Monospace =====
+.num, .mono, [data-type="number"] {
+  font-family: $font-mono;
+  font-variant-numeric: tabular-nums;
+}
+
+// ===== Card =====
+.nv-card {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  border: 1px solid $color-border-light;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-base;
+  }
+}
+
+// ===== Section Title =====
+.section-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  &__sub {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    color: $color-text-secondary;
+    margin-left: auto;
+  }
+}
+
+// ===== Status Colors =====
+.status-good    { color: $color-success; }
+.status-warning { color: $color-warning; }
+.status-danger  { color: $color-danger; }
+.status-info    { color: $color-info; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+
+  &--success { background: $color-success-light; color: $color-success; }
+  &--warning { background: $color-warning-light; color: $color-warning; }
+  &--danger  { background: $color-danger-light;  color: $color-danger;  }
+  &--info    { background: $color-info-light;    color: $color-info;    }
+  &--accent  { background: $color-accent-light;  color: $color-accent;  }
+}
+
+// ===== Loading Skeleton =====
+@keyframes skeleton-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    $color-bg-secondary 25%,
+    darken($color-bg-secondary, 3%) 50%,
+    $color-bg-secondary 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+  border-radius: $radius-sm;
+}
+
+// ===== Button Overrides (Element Plus) =====
+.el-button {
+  font-family: $font-sans !important;
+  font-weight: $font-weight-medium !important;
+  transition: $transition-base !important;
+
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+
+  &--primary {
+    background-color: $color-accent !important;
+    border-color: $color-accent !important;
+
+    &:hover {
+      background-color: $color-accent-hover !important;
+      border-color: $color-accent-hover !important;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+    }
+  }
+}
+
+// ===== Input Overrides =====
+.el-input__wrapper {
+  transition: $transition-fast !important;
+
+  &:hover, &.is-focus {
+    box-shadow: 0 0 0 1px $color-accent !important;
+  }
+}
+
+// ===== Table Overrides =====
+.el-table {
+  font-family: $font-sans;
+
+  th.el-table__cell {
+    background: $color-bg-secondary !important;
+    color: $color-text-secondary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+  }
+
+  td.el-table__cell {
+    font-size: $font-size-base;
+  }
+
+  .el-table__row:hover > td.el-table__cell {
+    background: rgba(79, 70, 229, 0.03) !important;
+  }
+}
+
+// ===== Animation Utilities =====
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+// ===== Chart Container =====
+.chart-wrapper {
+  width: 100%;
+  position: relative;
+
+  .chart-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: $radius-lg;
+    z-index: 10;
+  }
+}
+
+// ===== Empty State =====
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-12 $space-8;
+  text-align: center;
+  color: $color-text-tertiary;
+
+  .empty-state__icon {
+    font-size: 48px;
+    margin-bottom: $space-4;
+    opacity: 0.5;
+  }
+
+  .empty-state__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    margin-bottom: $space-2;
+  }
+
+  .empty-state__desc {
+    font-size: $font-size-sm;
+    color: $color-text-tertiary;
+    max-width: 280px;
+    line-height: $line-height-base;
+  }
+}
