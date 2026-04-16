@@ -3,6 +3,9 @@
  */
 import request from './request'
 
+// AI 接口调用 LLM，耗时较长，使用独立的超时时间
+const AI_TIMEOUT = 120000 // 120s
+
 /**
  * AI 饮食综合分析
  * @param {string} startDate - YYYY-MM-DD
@@ -10,7 +13,7 @@ import request from './request'
  * @param {number} userId    - 用户 ID（默认 1）
  */
 export function analyzeDiet(startDate, endDate, userId = 1) {
-  return request.post('/api/ai/analyze', { userId, startDate, endDate })
+  return request.post('/api/ai/analyze', { userId, startDate, endDate }, { timeout: AI_TIMEOUT })
 }
 
 /**
@@ -18,7 +21,7 @@ export function analyzeDiet(startDate, endDate, userId = 1) {
  * @param {number} userId - 用户 ID（默认 1）
  */
 export function getRecommendation(userId = 1) {
-  return request.post('/api/ai/recommend', { userId })
+  return request.post('/api/ai/recommend', { userId }, { timeout: AI_TIMEOUT })
 }
 
 /**
@@ -28,5 +31,5 @@ export function getRecommendation(userId = 1) {
  * @param {number} userId   - 用户 ID（默认 1）
  */
 export function predictTrend(nutrient, days = 7, userId = 1) {
-  return request.post('/api/ai/predict', { userId, nutrient, days })
+  return request.post('/api/ai/predict', { userId, nutrient, days }, { timeout: AI_TIMEOUT })
 }
