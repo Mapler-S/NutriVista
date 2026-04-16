@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { DataLine, EditPen, Calendar, FolderOpened, Grid, Bowl } from '@element-plus/icons-vue'
+import { DataLine, EditPen, Calendar, FolderOpened, Grid, Bowl, MagicStick } from '@element-plus/icons-vue'
 
 const navItems = [
   { path: '/dashboard',    label: '数据仪表盘', icon: DataLine },
@@ -31,6 +31,7 @@ const navItems = [
   { path: '/calendar',     label: '饮食日历',   icon: Calendar },
   { path: '/food-library', label: '食物库',     icon: Grid },
   { path: '/recipes',      label: '菜谱浏览',   icon: Bowl },
+  { path: '/ai-analysis',  label: 'AI 饮食分析', icon: MagicStick },
   { path: '/data',         label: '数据管理',   icon: FolderOpened },
 ]
 </script>

@@ -44,6 +44,12 @@ const routes = [
         meta: { title: '菜谱浏览', icon: 'Bowl' },
       },
       {
+        path: 'ai-analysis',
+        name: 'AiAnalysis',
+        component: () => import('@/views/AiAnalysis.vue'),
+        meta: { title: 'AI 饮食分析', icon: 'MagicStick' },
+      },
+      {
         path: 'data',
         name: 'DataManagement',
         component: () => import('@/views/DataManagement.vue'),
